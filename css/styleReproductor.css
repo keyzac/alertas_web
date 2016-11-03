@@ -1,0 +1,452 @@
+/*-- main --*/
+.agile_copy_right p a{
+	transition:.5s ease-in;
+	-webkit-transition:.5s ease-in;
+	-moz-transition:.5s ease-in;
+	-o-transition:.5s ease-in;
+	-ms-transition:.5s ease-in;
+}
+.main{
+	width:50%;
+	margin:4em auto;
+}
+.main h1{
+	font-size:3em;
+    color: #fff;
+    text-align: center;
+	margin-bottom: 1em;
+}
+.agile_copy_right{
+	margin:5em 0 0;
+}
+.agile_copy_right p{
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+	line-height:1.8em;
+}
+.agile_copy_right p a {
+    color: #fff;
+	text-decoration:none;
+}
+.agile_copy_right p a:hover {
+    color: #212121;
+	text-decoration:none;
+}
+.audio-player-wrapper { 
+  }
+  /* line 28, /Users/Rose/Sites/audio_player/source/stylesheets/style.sass */
+  .audio-player-wrapper.error .audio-player-image {
+    background: #f78471; }
+    /* line 30, /Users/Rose/Sites/audio_player/source/stylesheets/style.sass */
+    .audio-player-wrapper.error .audio-player-image:before {
+      position: absolute;
+      top: 50px;
+      bottom: 0;
+      height: 10px;
+      width: 100%;
+      text-align: center;
+      margin: auto;
+      color: white;
+      content: "Error loading";
+      font-family: "Open Sans", sans-serif;
+      font-weight: 600;
+      font-size: 13px; }
+    /* line 43, /Users/Rose/Sites/audio_player/source/stylesheets/style.sass */
+    .audio-player-wrapper.error .audio-player-image > * {
+      display: none; }
+
+/* line 46, /Users/Rose/Sites/audio_player/source/stylesheets/style.sass */
+.audio-player-image {
+  position: relative;
+  -webkit-backface-visibility: hidden; }
+  /* line 50, /Users/Rose/Sites/audio_player/source/stylesheets/style.sass */
+.audio-player-image > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+}
+    /* line 56, /Users/Rose/Sites/audio_player/source/stylesheets/style.sass */
+    .audio-player-image > img.fading {
+      -webkit-transition: opacity 200ms linear;
+      -moz-transition: opacity 200ms linear;
+      -o-transition: opacity 200ms linear;
+      transition: opacity 200ms linear;
+      z-index: 1;
+      opacity: 0; }
+
+/* line 61, /Users/Rose/Sites/audio_player/source/stylesheets/style.sass */
+.audio-player-song-name {
+    position: absolute;
+    top: 20px;
+    left: 23%;
+    right: 10%;
+    color: white;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.9);
+    text-transform: capitalize;
+    font-size: 1.0em;
+	}
+
+/* line 73, /Users/Rose/Sites/audio_player/source/stylesheets/style.sass */
+.audio-player-controls {
+  	border-radius: 5px;
+    padding:4.8em 2em 1.2em;
+    background: url(../images/1.jpg) no-repeat 0px 0px;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+}
+@-moz-keyframes loadingStripes {
+  /* line 77, /Users/Rose/Sites/audio_player/source/stylesheets/style.sass */
+  0% {
+    background-position: -20px; }
+
+  /* line 79, /Users/Rose/Sites/audio_player/source/stylesheets/style.sass */
+  100% {
+    background-position: 0px; } }
+
+@-webkit-keyframes loadingStripes {
+  /* line 77, /Users/Rose/Sites/audio_player/source/stylesheets/style.sass */
+  0% {
+    background-position: -20px; }
+
+  /* line 79, /Users/Rose/Sites/audio_player/source/stylesheets/style.sass */
+  100% {
+    background-position: 0px; } }
+
+@-o-keyframes loadingStripes {
+  /* line 77, /Users/Rose/Sites/audio_player/source/stylesheets/style.sass */
+  0% {
+    background-position: -20px; }
+
+  /* line 79, /Users/Rose/Sites/audio_player/source/stylesheets/style.sass */
+  100% {
+    background-position: 0px; } }
+
+@-ms-keyframes loadingStripes {
+  /* line 77, /Users/Rose/Sites/audio_player/source/stylesheets/style.sass */
+  0% {
+    background-position: -20px; }
+
+  /* line 79, /Users/Rose/Sites/audio_player/source/stylesheets/style.sass */
+  100% {
+    background-position: 0px; } }
+
+@keyframes loadingStripes {
+  /* line 77, /Users/Rose/Sites/audio_player/source/stylesheets/style.sass */
+  0% {
+    background-position: -20px; }
+
+  /* line 79, /Users/Rose/Sites/audio_player/source/stylesheets/style.sass */
+  100% {
+    background-position: 0px; } }
+
+/* line 82, /Users/Rose/Sites/audio_player/source/stylesheets/style.sass */
+.audio-player-progress {
+    display: block;
+    width:80%;
+    height: 8px;
+    border-radius: 25px;
+    background-color: #E4E4E4;
+    overflow: hidden;
+    margin: 0 auto;
+	}
+  /* line 89, /Users/Rose/Sites/audio_player/source/stylesheets/style.sass */
+  .audio-player-progress.loading {
+    background-image: -webkit-linear-gradient(-45deg, #808e97 25%, transparent 25%, transparent 50%, #808e97 50%, #808e97 75%, transparent 75%, transparent);
+    background-image: -moz-linear-gradient(-45deg, #808e97 25%, transparent 25%, transparent 50%, #808e97 50%, #808e97 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(-45deg, #808e97 25%, transparent 25%, transparent 50%, #808e97 50%, #808e97 75%, transparent 75%, transparent);
+    background-image: linear-gradient(-45deg, #808e97 25%, transparent 25%, transparent 50%, #808e97 50%, #808e97 75%, transparent 75%, transparent);
+    background-size: 20px 20px;
+    -webkit-animation: loadingStripes 700ms linear infinite;
+    -moz-animation: loadingStripes 700ms linear infinite;
+    -ms-animation: loadingStripes 700ms linear infinite;
+    -o-animation: loadingStripes 700ms linear infinite;
+    animation: loadingStripes 700ms linear infinite; }
+
+/* line 94, /Users/Rose/Sites/audio_player/source/stylesheets/style.sass */
+.audio-player-progress-bar {
+  -webkit-transition: width 200ms linear;
+  -moz-transition: width 200ms linear;
+  -o-transition: width 200ms linear;
+  transition: width 200ms linear;
+  display: block;
+  height: 100%;
+  width: 0;
+  max-width: 100%;
+  background-color:#1aafd0;
+  border-radius: 25px; }
+
+/* line 103, /Users/Rose/Sites/audio_player/source/stylesheets/style.sass */
+.audio-player-button {
+  display: block;
+  position: relative;
+  float: left;
+  width: 35px;
+  height: 35px;
+  margin: 0 5px;
+  border-radius: 100%;
+  border:1.5px solid #FFFFFF;
+  opacity: 0.8;
+  cursor: pointer; }
+  /* line 114, /Users/Rose/Sites/audio_player/source/stylesheets/style.sass */
+  .audio-player-button:hover {
+    opacity: 1; }
+  /* line 116, /Users/Rose/Sites/audio_player/source/stylesheets/style.sass */
+  .audio-player-button::before {
+    position: absolute;
+    top: -1px;
+    bottom: 0;
+    left: 0px;
+    right: 0;
+    width: 0px;
+    height: 0px;
+    margin: auto;
+    line-height: 1px;
+    font-size: 20px;
+    color: #525252; 
+	}
+  /* line 128, /Users/Rose/Sites/audio_player/source/stylesheets/style.sass */
+  .audio-player-button.icon-pause::before {
+		font-size: 18px;
+		top: 1px;
+		left: 0px; }
+	.icon-play:before {
+		content: '';
+		background:url(../images/4.png) no-repeat 10px 8px;
+		display: block;
+		height: 35px;
+		width: 35px;
+	}
+	.icon-pause:before {
+		content: '';
+		background:url(../images/3.png) no-repeat 9px 7px;
+		display: block;
+		height: 35px;
+		width: 35px;
+	}
+	.icon-forward:before {
+		content: '';
+		background:url(../images/2.png) no-repeat 7.5px 6.5px;
+		display: block;
+		height: 25px;
+		width: 25px;
+	}
+  /* line 132, /Users/Rose/Sites/audio_player/source/stylesheets/style.sass */
+  .audio-player-button.icon-backward::before {
+    left: 0px; }
+	
+	.icon-backward:before {
+		content: '';
+		background:url(../images/1.png) no-repeat 7px 6.5px;
+		display: block;
+		height: 25px;
+		width: 25px;
+	}
+  /* line 134, /Users/Rose/Sites/audio_player/source/stylesheets/style.sass */
+  .audio-player-button.small {
+    width: 25px;
+    height: 25px;
+    margin-top: 5px; }
+
+/* line 141, /Users/Rose/Sites/audio_player/source/stylesheets/style.sass */
+.audio-player-button-wrappers {
+	overflow: hidden;
+    display: block;
+    width: 133px;
+    margin: 0 auto;
+    padding: 10px 0;
+  }
+a.audio-player-button.small.icon-backward,a.audio-player-button.small.icon-forward{
+	position:relative;
+}
+a.audio-player-button.small.icon-backward span,a.audio-player-button.small.icon-forward span{
+	opacity: 0;
+    font-size: 1em;
+    color: #212121;
+    position: absolute;
+	bottom: -85%;
+    background: #fff;
+    padding: 0 .5em;
+}
+a.audio-player-button.small.icon-backward span {
+    left: -32%;
+}
+a.audio-player-button.small.icon-forward span {
+    right: -32%;
+}
+a.audio-player-button.small.icon-backward:hover span,a.audio-player-button.small.icon-forward:hover span {
+    opacity: 1;
+}
+/*-- start-responsive-design --*/
+@media (max-width:1440px){
+	.audio-player-song-name {
+		left: 60px;
+	}
+}
+@media (max-width:1366px){
+	.audio-player-song-name {
+		left: 50px;
+	}
+}
+@media (max-width:1280px){
+	.main h1 {
+		font-size: 2.7em;
+	}
+	.audio-player-song-name {
+		left: 40px;
+	}
+}
+@media (max-width:1080px){
+	.main {
+		width: 60%;
+	}
+}
+@media (max-width:1024px){
+	.audio-player-song-name {
+		left: 40px;
+	}
+}
+@media (max-width:991px){
+	.audio-player-controls {
+		padding: 4.8em 2em 1.2em;
+	}
+	.audio-player-song-name {
+		left: 25%;
+		right: 20%;
+		top: 20px;
+	}
+}
+@media (max-width:800px){
+	.main h1 {
+		font-size: 2.4em;
+	}
+	.main {
+		width: 70%;
+	}
+	.audio-player-song-name {
+		left: 25%;
+		right: 20%;
+		top: 20px;
+	}
+}
+@media (max-width:736px){
+	.main h1 {
+		font-size: 2.2em;
+	}
+	.main {
+		width: 80%;
+	}
+	.agile_copy_right {
+		margin: 3em 0 0;
+	}
+}
+@media (max-width: 667px){
+	.audio-player-controls {
+		padding: 4.8em 2em 1.2em;
+	}
+	.audio-player-button-wrappers {
+		padding: 25px 0;
+	}
+	.audio-player-song-name {
+		left: 25%;
+		right: 20%;
+		top: 20px;
+	}
+	a.audio-player-button.small.icon-backward span, a.audio-player-button.small.icon-forward span {
+		font-size: 14px;
+		bottom: -125%;
+	}
+}
+@media (max-width: 600px){
+	.main h1 {
+		font-size: 2em;
+		margin-bottom: 1.5em;
+	}
+	.main {
+		margin: 3em auto;
+	}
+	.audio-player-song-name {
+		left: 25%;
+		right: 20%;
+		top: 20px;
+	}
+}
+@media (max-width:568px){
+	.main h1 {
+		margin-bottom: 1em;
+	}
+	.audio-player-song-name {
+		left: 25%;
+		right: 20%;
+		top: 20px;
+		font-size: 1.0em;
+	}
+}
+@media (max-width:480px){
+	.audio-player-song-name {
+		left: 25%;
+		right: 20%;
+		top: 20px;;
+	}
+	.audio-player-progress {
+		width: 100%;
+	}
+}
+@media (max-width: 414px){
+	.main h1 {
+		font-size: 1.8em;
+	}
+	.main {
+		margin: 2em auto;
+		width: 85%;
+	}
+	.audio-player-song-name {
+		left: 25%;
+		right: 20%;
+		top: 20px;
+	}
+}
+@media (max-width: 384px){
+	.main h1 {
+		font-size: 1.7em;
+	}
+	.audio-player-song-name {
+		left: 25%;
+		right: 20%;
+		top: 20px;
+		font-size: 1.2em;
+	}
+	.agile_copy_right p {
+		font-size: 14px;
+	}
+}
+@media (max-width: 320px){
+	.main {
+		width: 90%;
+		margin: 3em auto 2em;
+	}
+	.main h1 {
+		font-size: 1.49em;
+	}
+	.audio-player-song-name {
+		left: 25%;
+		right: 20%;
+		top: 20px;
+		font-size: 0.8em;
+	}
+	.audio-player-controls {
+		padding: 4.8em 2em 1.2em;
+	}
+	.agile_copy_right {
+		margin: 2em 0 0;
+	}
+	a.audio-player-button.small.icon-backward span, a.audio-player-button.small.icon-forward span {
+		font-size: 13px;
+		bottom: -125%;
+	}
+}
