@@ -92,25 +92,25 @@
 
 		var map;
 		function initMap() {
-		  map = new google.maps.Map(document.getElementById('map'), {
-		    center: {lat: -12.060001, lng: -77.078946},
-		    zoom: 15
-		  });
+			var pos = {lat: -12.060001, lng: -77.078946};
 
-		  var pos = new google.maps.LatLng(-12.060001, -77.078946);
+			var map = new google.maps.Map(document.getElementById('map'), {
+			  center: pos,
+			  zoom: 15
+			});
 
-		  var marker = new google.maps.Marker({
-		    position: pos,
-		    map: map,
-		    title: 'Hello World!',
-		    animation: google.maps.Animation.DROP
-		  });
+			var marker = new google.maps.Marker({
+			  position: pos,
+			  map: map,
+			  title: 'Este es el punto!',
+			  animation: google.maps.Animation.DROP
+			});
 		}
 
-    </script>
-    <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxN2Wtst6WLJSwk7g36ma_pwYMRnkwnnk&callback=initMap">
-    </script>
+	</script>
+	<script async defer
+	  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxN2Wtst6WLJSwk7g36ma_pwYMRnkwnnk&callback=initMap">
+	</script>
 
 </head>
 <body>
@@ -419,9 +419,9 @@
 					<div class="clearfix"> </div>
 				</div>
 
-				<div class="content-top-1" style="height: 280px; padding: 0;">
+				<div class="content-top-1" style="height: 280px; padding: 0; border-radius: 5px;">
 
-					<div id="map" style="height: 100%;"></div>
+					<div id="map" style="height: 100%; border-radius: 5px;"></div>
 
 				<div class="clearfix"> </div>
 				</div>
