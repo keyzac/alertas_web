@@ -87,13 +87,23 @@
 	<script src="js/skycons.js"></script>
 	<!--//skycons-icons-->
 
+	<!-- API GoogleMaps -->
 	<script type="text/javascript">
 
 		var map;
 		function initMap() {
 		  map = new google.maps.Map(document.getElementById('map'), {
-		    center: {lat: -34.397, lng: 150.644},
-		    zoom: 8
+		    center: {lat: -12.060001, lng: -77.078946},
+		    zoom: 15
+		  });
+
+		  var pos = new google.maps.LatLng(-12.060001, -77.078946);
+
+		  var marker = new google.maps.Marker({
+		    position: pos,
+		    map: map,
+		    title: 'Hello World!',
+		    animation: google.maps.Animation.DROP
 		  });
 		}
 
