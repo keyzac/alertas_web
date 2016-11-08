@@ -10,6 +10,19 @@
 		function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
 
+	<!-- Scroll de Tabla -->
+	<script type="text/javascript" src="js/1.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.tablescroll.js"></script>
+
+	<script>
+
+		jQuery(document).ready(function($)
+		{
+			$('#thetable').tableScroll({height:550});
+		});
+
+	</script>
+
 	<!-- Custom Theme files -->
 	<link href="css/style.css" rel='stylesheet' type='text/css' />
 	<link href="css/font-awesome.css" rel="stylesheet"> 
@@ -21,67 +34,24 @@
 	<link href="css/custom.css" rel="stylesheet">
 	<script src="js/custom.js"></script>
 	<script src="js/screenfull.js"></script>
-			<script>
-			$(function () {
-				$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
+	<script>
+	$(function () {
+		$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
 
-				if (!screenfull.enabled) {
-					return false;
-				}
+		if (!screenfull.enabled) {
+			return false;
+		}
 
-				
+		
 
-				$('#toggle').click(function () {
-					screenfull.toggle($('#container')[0]);
-				});
-				
+		$('#toggle').click(function () {
+			screenfull.toggle($('#container')[0]);
+		});
+		
 
-				
-			});
-			</script>
-
-	<!--pie-chart-->
-	<script src="js/pie-chart.js" type="text/javascript"></script>
-	 <script type="text/javascript">
-
-			$(document).ready(function () {
-				$('#demo-pie-1').pieChart({
-					barColor: '#3bb2d0',
-					trackColor: '#eee',
-					lineCap: 'round',
-					lineWidth: 8,
-					onStep: function (from, to, percent) {
-						$(this.element).find('.pie-value').text(Math.round(percent) + '%');
-					}
-				});
-
-				$('#demo-pie-2').pieChart({
-					barColor: '#fbb03b',
-					trackColor: '#eee',
-					lineCap: 'butt',
-					lineWidth: 8,
-					onStep: function (from, to, percent) {
-						$(this.element).find('.pie-value').text(Math.round(percent) + '%');
-					}
-				});
-
-				$('#demo-pie-3').pieChart({
-					barColor: '#ed6498',
-					trackColor: '#eee',
-					lineCap: 'square',
-					lineWidth: 8,
-					onStep: function (from, to, percent) {
-						$(this.element).find('.pie-value').text(Math.round(percent) + '%');
-					}
-				});
-
-			   
-			});
-
-		</script>
-	<!--skycons-icons-->
-	<script src="js/skycons.js"></script>
-	<!--//skycons-icons-->
+		
+	});
+	</script>
 </head>
 <body>
 <div id="wrapper">
@@ -177,15 +147,15 @@
 				<ul class="nav" id="side-menu">
 				
 					<li>
-						<a href="index.html" class=" hvr-bounce-to-right"><i class="fa fa-dashboard nav_icon "></i><span class="nav-label">Reporte de alertas</span> </a>
+						<a href="index.html" class=" hvr-bounce-to-right"><i class="fa fa-inbox nav_icon "></i><span class="nav-label">Reporte de alertas</span> </a>
 					</li>
 					
 					<li>
-						<a href="detalle.html" class=" hvr-bounce-to-right"><i class="fa fa-inbox nav_icon"></i> <span class="nav-label">Detalle de alertas</span> </a>
+						<a href="detalle.html" class=" hvr-bounce-to-right"><i class="fa fa-picture-o nav_icon"></i> <span class="nav-label">Detalle de alertas</span> </a>
 					</li>
 					
 					<li>
-						<a href="historial.html" class=" hvr-bounce-to-right"><i class="fa fa-picture-o nav_icon"></i> <span class="nav-label">Historial</span> </a>
+						<a href="historial.html" class=" hvr-bounce-to-right"><i class="fa fa-dashboard nav_icon"></i> <span class="nav-label">Historial</span> </a>
 					</li>
 					
 					<li>
@@ -218,9 +188,9 @@
 		<div class="col-md-12">
     				<!--start-chart-->
     				<!---->
-    				<div class="inbox-right" style='width:100%'>
+    				<div class="inbox-right" style='width:100%; padding-top: 28px !important;'>
     					<div class="mailbox-content">
-                   <div class="mail-toolbar clearfix">
+                   <!--<div class="mail-toolbar clearfix">
     			     
     			    <div class="float-right">
 
@@ -233,37 +203,39 @@
     			        
     			    </div>
 
-
-                   </div>
-                    <table class="table">
-                    	<tr class="table-row">
-                            <th>
+                   </div>-->
+                    <table id="thetable" class="table">
+                    	<thead >
+                    	<tr class="table-row" style="font-size: 13.6px;  color: #999; border-bottom: 2px solid #ddd;">
+                            <th style="padding: 15px;">
                                Entidad
                             </th>
-                            <th>
+                            <th style="padding: 15px;">
                             	Nombre de Usuario
                             </th>
-                            <th>
+                            <th style="padding: 15px;">
                             	<span class="work">Fecha y Hora</span>
                             </th>
-                            <th>
+                            <th style="padding: 15px;">
                                	Distrito 
                             </th>
                           
-                            <th >
+                            <th style="padding: 15px;">
     							Categoria
                             </th>
-                            <th >
+                            <th style="padding: 15px;">
                                 Estado
                             </th>
                         </tr>
-                        <tbody>
+                        </thead>
+
+                        <tbody >
                             <tr class="table-row">
-                                <td class="table-img">
-                                   Estacion de Bomberos
+                                <td class="table-text">
+                                   <h6>Estacion de Bomberos</h6>
                                 </td>
                                 <td class="table-text">
-                                	<h6>Jose de San Martin</h6>
+                                	Jose de San Martin
                                 </td>
                                 <td>
                                 	<span class="mar">30-10-16 10:36</span>
@@ -272,8 +244,8 @@
                                    Breña 
                                 </td>
                               
-                                 <td >
-    							 Incendio
+                                 <td class="table-text">
+    							 <h6>Incendio</h6>
                                     
                                 </td>
                                 <td >
@@ -282,11 +254,11 @@
                                 </td>
                             </tr>
                            <tr class="table-row">
-                                <td class="table-img">
-                                   Comisaria
+                                <td class="table-text">
+                                   <h6>Comisaria</h6>
                                 </td>
                                 <td class="table-text">
-                                    <h6> Miguel Grau</h6>
+                                    Miguel Grau
                                 </td>
                                 <td>
                                     <span class="mar">30-10-16 10:36</span>
@@ -295,8 +267,8 @@
                                    Breña 
                                 </td>
                               
-                                 <td >
-                                 Robo
+                                 <td class="table-text">
+                                 <h6>Robo</h6>
                                     
                                 </td>
                                 <td >
@@ -305,11 +277,11 @@
                                 </td>
                             </tr>
                             <tr class="table-row">
-                                <td class="table-img">
-                                   Estacion de Bomberos
+                                <td class="table-text">
+                                   <h6>Estacion de Bomberos</h6>
                                 </td>
                                 <td class="table-text">
-                                    <h6> Micaela Bastidas</h6>
+                                    Micaela Bastidas
                                 </td>
                                 <td>
                                     <span class="mar">30-10-16 10:36</span>
@@ -318,8 +290,8 @@
                                    Breña 
                                 </td>
                               
-                                 <td >
-                                 Incendio
+                                 <td class="table-text">
+                                 <h6>Incendio</h6>
                                     
                                 </td>
                                 <td >
@@ -328,11 +300,11 @@
                                 </td>
                             </tr>
                             <tr class="table-row">
-                                <td class="table-img">
-                                   Estacion de Bomberos
+                                <td class="table-text">
+                                   <h6>Estacion de Bomberos</h6>
                                 </td>
                                 <td class="table-text">
-                                    <h6> Santa Rosa de Lima</h6>
+                                    Santa Rosa de Lima
                                 </td>
                                 <td>
                                     <span class="mar">30-10-16 10:36</span>
@@ -341,8 +313,8 @@
                                    Breña 
                                 </td>
                               
-                                 <td >
-                                 Incendio
+                                 <td class="table-text">
+                                 <h6>Incendio</h6>
                                     
                                 </td>
                                 <td >
@@ -351,11 +323,11 @@
                                 </td>
                             </tr>
                             <tr class="table-row">
-                                <td class="table-img">
-                                   Estacion de Bomberos
+                                <td class="table-text">
+                                   <h6>Estacion de Bomberos</h6>
                                 </td>
                                 <td class="table-text">
-                                    <h6> Sarita Colonia</h6>
+                                    Sarita Colonia
                                 </td>
                                 <td>
                                     <span class="mar">30-10-16 10:36</span>
@@ -364,8 +336,8 @@
                                    Breña 
                                 </td>
                               
-                                 <td >
-                                 Accidente Casero
+                                 <td class="table-text">
+                                 <h6>Accidente Casero</h6>
                                     
                                 </td>
                                 <td >
@@ -374,11 +346,11 @@
                                 </td>
                             </tr>
                             <tr class="table-row">
-                                <td class="table-img">
-                                   Estacion de Bomberos
+                                <td class="table-text">
+                                   <h6>Estacion de Bomberos</h6>
                                 </td>
                                 <td class="table-text">
-                                    <h6> Chabuca Granda</h6>
+                                    Chabuca Granda
                                 </td>
                                 <td>
                                     <span class="mar">30-10-16 10:36</span>
@@ -387,8 +359,8 @@
                                    Breña 
                                 </td>
                               
-                                 <td >
-                                 Accidente Casero
+                                 <td class="table-text">
+                                 <h6>Accidente Casero</h6>
                                     
                                 </td>
                                 <td >
@@ -396,7 +368,259 @@
                                     
                                 </td>
                             </tr>
-    	
+                            <tr class="table-row">
+                                <td class="table-text">
+                                   <h6>Estacion de Bomberos</h6>
+                                </td>
+                                <td class="table-text">
+                                    Chabuca Granda
+                                </td>
+                                <td>
+                                    <span class="mar">30-10-16 10:36</span>
+                                </td>
+                                <td class="table-text">
+                                   Breña 
+                                </td>
+                              
+                                 <td class="table-text">
+                                 <h6>Accidente Casero</h6>
+                                    
+                                </td>
+                                <td >
+                                 Atendido
+                                    
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="table-text">
+                                   <h6>Estacion de Bomberos</h6>
+                                </td>
+                                <td class="table-text">
+                                    Chabuca Granda
+                                </td>
+                                <td>
+                                    <span class="mar">30-10-16 10:36</span>
+                                </td>
+                                <td class="table-text">
+                                   Breña 
+                                </td>
+                              
+                                 <td class="table-text">
+                                 <h6>Accidente Casero</h6>
+                                    
+                                </td>
+                                <td >
+                                 Atendido
+                                    
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="table-text">
+                                   <h6>Estacion de Bomberos</h6>
+                                </td>
+                                <td class="table-text">
+                                    Chabuca Granda
+                                </td>
+                                <td>
+                                    <span class="mar">30-10-16 10:36</span>
+                                </td>
+                                <td class="table-text">
+                                   Breña 
+                                </td>
+                              
+                                 <td class="table-text">
+                                 <h6>Accidente Casero</h6>
+                                    
+                                </td>
+                                <td >
+                                 Atendido
+                                    
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="table-text">
+                                   <h6>Estacion de Bomberos</h6>
+                                </td>
+                                <td class="table-text">
+                                    Chabuca Granda
+                                </td>
+                                <td>
+                                    <span class="mar">30-10-16 10:36</span>
+                                </td>
+                                <td class="table-text">
+                                   Breña 
+                                </td>
+                              
+                                 <td class="table-text">
+                                 <h6>Accidente Casero</h6>
+                                    
+                                </td>
+                                <td >
+                                 Atendido
+                                    
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="table-text">
+                                   <h6>Estacion de Bomberos</h6>
+                                </td>
+                                <td class="table-text">
+                                    Chabuca Granda
+                                </td>
+                                <td>
+                                    <span class="mar">30-10-16 10:36</span>
+                                </td>
+                                <td class="table-text">
+                                   Breña 
+                                </td>
+                              
+                                 <td class="table-text">
+                                 <h6>Accidente Casero</h6>
+                                    
+                                </td>
+                                <td >
+                                 Atendido
+                                    
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="table-text">
+                                   <h6>Estacion de Bomberos</h6>
+                                </td>
+                                <td class="table-text">
+                                    Chabuca Granda
+                                </td>
+                                <td>
+                                    <span class="mar">30-10-16 10:36</span>
+                                </td>
+                                <td class="table-text">
+                                   Breña 
+                                </td>
+                              
+                                 <td class="table-text">
+                                 <h6>Accidente Casero</h6>
+                                    
+                                </td>
+                                <td >
+                                 Atendido
+                                    
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="table-text">
+                                   <h6>Estacion de Bomberos</h6>
+                                </td>
+                                <td class="table-text">
+                                    Chabuca Granda
+                                </td>
+                                <td>
+                                    <span class="mar">30-10-16 10:36</span>
+                                </td>
+                                <td class="table-text">
+                                   Breña 
+                                </td>
+                              
+                                 <td class="table-text">
+                                 <h6>Accidente Casero</h6>
+                                    
+                                </td>
+                                <td >
+                                 Atendido
+                                    
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="table-text">
+                                   <h6>Estacion de Bomberos</h6>
+                                </td>
+                                <td class="table-text">
+                                    Chabuca Granda
+                                </td>
+                                <td>
+                                    <span class="mar">30-10-16 10:36</span>
+                                </td>
+                                <td class="table-text">
+                                   Breña 
+                                </td>
+                              
+                                 <td class="table-text">
+                                 <h6>Accidente Casero</h6>
+                                    
+                                </td>
+                                <td >
+                                 Atendido
+                                    
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="table-text">
+                                   <h6>Estacion de Bomberos</h6>
+                                </td>
+                                <td class="table-text">
+                                    Chabuca Granda
+                                </td>
+                                <td>
+                                    <span class="mar">30-10-16 10:36</span>
+                                </td>
+                                <td class="table-text">
+                                   Breña 
+                                </td>
+                              
+                                 <td class="table-text">
+                                 <h6>Accidente Casero</h6>
+                                    
+                                </td>
+                                <td >
+                                 Atendido
+                                    
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="table-text">
+                                   <h6>Estacion de Bomberos</h6>
+                                </td>
+                                <td class="table-text">
+                                    Chabuca Granda
+                                </td>
+                                <td>
+                                    <span class="mar">30-10-16 10:36</span>
+                                </td>
+                                <td class="table-text">
+                                   Breña 
+                                </td>
+                              
+                                 <td class="table-text">
+                                 <h6>Accidente Casero</h6>
+                                    
+                                </td>
+                                <td >
+                                 Atendido
+                                    
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="table-text">
+                                   <h6>Estacion de Bomberos</h6>
+                                </td>
+                                <td class="table-text">
+                                    Chabuca Granda
+                                </td>
+                                <td>
+                                    <span class="mar">30-10-16 10:36</span>
+                                </td>
+                                <td class="table-text">
+                                   Breña 
+                                </td>
+                              
+                                 <td class="table-text">
+                                 <h6>Accidente Casero</h6>
+                                    
+                                </td>
+                                <td >
+                                 Atendido
+                                    
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                    </div>
@@ -417,7 +641,8 @@
 		<!--//scrolling js-->
 		<script src="js/bootstrap.min.js"> </script>
 
-	 </div>
+	
+	</div>
 	<!---->
 	
 </body>
