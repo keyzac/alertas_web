@@ -352,7 +352,7 @@
         name: "Pista N° 1 - Audio enviado",
         srcs: [
           {
-            src: "SheSnake.mp3",
+            src: "audio/SheSnake.mp3",
             type: "audio/mp3",
           }
         ]

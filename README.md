@@ -4,13 +4,12 @@ PROYECTO DE CALIDAD <br>
 Sistema web para el administrador
 -------------------------------------------
 
--El reproductor aun no reproduce cualquier audio, solo funcionaba <br>
-con 2 en especifico.
+- El reproductor aun reproduce cualquier audio, mientras se mantenga en el directorio audio y
+se precargue su ruta en all.js.
 
--Modificar los archivos necesarios para que pueda reproducir cualquier audio enviado<br>
-desde la app movil a la bd (solo 1, los botones de retroceder y avanzar se eliminaran luego).
+- La api de google maps talvez no funcione en otra pc; en ese caso, generarse
+su propia KEY en el sgt enlace: https://developers.google.com/maps/documentation/javascript/get-api-key?hl=es-419.
 
--La api de google maps talvez no funcione en otra pc; en ese caso, generarse<br>
-su propia KEY en el sgt enlace: https://developers.google.com/maps/documentation/javascript/get-api-key?hl=es-419 <br>
+- Reemplazar la KEY de google maps en el codigo. Archivo index.html, linea 102, ....key=(KEY-GENERADA-AQUI)&callback=.
 
--Reemplazar la KEY de google maps en el codigo. Archivo index.html, linea 102, ....key=(KEY-GENERADA-AQUI)&callback=......
+- No cuenta con dependiencias.
