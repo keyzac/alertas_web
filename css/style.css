@@ -1973,18 +1973,34 @@ nav.nav-sidebar {
     -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
     box-shadow: 0 1px 1px rgba(0,0,0,.05);
 }
-tr.table-row:hover{
+/*tr.table-row:hover{
 	background:#FAFAFA;
-}
+}*/
 .tab-content {
     padding-left: 0px;
 }
 tr.table-row {
-    border-top: 1px solid #F3F3F4;
+  border-top: 1px solid #F3F3F4;
 }
 .tab-content-in{
 	margin:0;
 }
+
+/* Seleccion de Tabla */
+.selected{
+  cursor: pointer;
+}
+.selected:hover{
+  background: #FADBD8;
+  color: white;
+}
+.seleccionada td{
+  background: #e0555a
+;
+  color: white !important;
+}
+/* Seleccion de Tabla */
+
 /*--graph--*/
 .graph-2 {
     padding-left: 8px;

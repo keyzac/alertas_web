@@ -10,6 +10,72 @@
 		function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
 
+	<!-- Seleccion de Tabla -->
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+
+	<script>
+		$(document).ready(function(){
+			$('#bt_add').click(function(){
+				agregar();
+			});
+			//$('#bt_del').click(function(){
+				//eliminar(id_fila_finalizada);
+			//});
+		});
+
+		var cont=0;
+		var mayor=0;
+		function agregar(){
+			cont++;
+			mayor = cont;
+			var fila= '<tr id="fila'+cont+'" class="selected table-row" onclick="seleccionar(this.id);"><td class="table-img"><img src="images/in'+Math.floor(Math.random()*(12))+'.jpg" alt=""/></td><td class="table-text"><h6>Nombre</h6></td><td><span class="work">'+cont+'</span></td><td class="table-text">Direccion</td><td><a class="btn btn-default" onclick="eliminar(this.parentNode.parentNode.rowIndex);">Atendido</a></td></tr>';
+			$('#tabla').prepend(fila);
+
+			//seleccionar la primera siempre
+			$('#fila'+cont).addClass('seleccionada');
+			$('#fila'+(cont-1)).removeClass('seleccionada');
+
+			
+		}
+
+		function seleccionar(id_fila){
+			//verificar que no haya otro selecionado y quitar la seleccion
+			for (var i = 1; i <= mayor; i++) {
+				
+				if ($('#fila'+i).hasClass('seleccionada')) {
+					$('#fila'+i).removeClass('seleccionada');
+					$('#'+id_fila).addClass('seleccionada')
+
+					//idea
+					// terinar el for y comprobar si existe la clase
+					//sino la agrega y/o elimina
+					//puede servir var x = document.getElementById("myTable").rows.length;
+				}else{
+					$('#'+id_fila).addClass('seleccionada');	
+				}
+			}	
+		}
+
+		function eliminar(i){
+			//Se obtiene la tabla con el id "tabla",
+			//luego se obtiene la fila que se va a eliminar por el numero de orden con respecto a la tabla,
+			//finalmente se obtiene la columna para abstraer su numero.
+			var t = document.getElementById("tabla"),
+		    	r = t.getElementsByTagName("tr")[i-1],
+		    	d = r.getElementsByTagName("td")[2]; //luego se cambiara el numero porque no se mostrar imagen de usuario, sino la "alerta del dia" (columna[0])
+
+			t.deleteRow(i-1);
+
+			//Esto es solo de prueba
+			alert('Alerta numero '+d.lastChild.innerHTML+' atendida');
+			console.log(d.lastChild.innerHTML);
+			//Por si acaso
+			//console.log(d.lastChild.lastChild);
+		}
+	</script>
+	<!-- Seleccion de Tabla -->
+
 	<!-- Reproductor -->
 	<script src="js/jquery2.min.js"></script>
 	<link href="css/styleReproductor.css" rel="stylesheet" type="text/css" media="all" />
@@ -82,7 +148,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-			   <h1> <a class="navbar-brand" href="index.html">Principal</a></h1>         
+			   <h1> <a class="navbar-brand" href="index.html">Alertas</a></h1>         
 			   </div>
 			 <div class=" border-bottom">
 			
@@ -204,8 +270,8 @@
 				 
 							<div class="float-right">
 								<div class="btn-group">
-									<a class="btn btn-default"><i class="fa fa-angle-left"></i></a>
-									<a class="btn btn-default"><i class="fa fa-angle-right"></i></a>
+									<button id="bt_add" class="btn btn-default">Agregar(solo de prueba, luego se quita)</button>
+									<button id="bt_add" class="btn btn-default">Ver detale</button>
 								</div>
 							</div>
 				
@@ -229,123 +295,15 @@
 							Estado
 						</th>
 					</tr>
-					<tbody>
-						<tr class="table-row">
-							<td class="table-img">
-							   <a href="#tab1" data-toggle="tab"><img src="images/in5.jpg" alt="" /></a>
-							</td>
-							<td class="table-text">
-								<h6> Jose de San Martin</h6>
-							</td>
-							<td>
-								<span class="work">10:36</span>
-							</td>
-							<td class="table-text">
-							   Av. Universitaria - cuadra 35 
-							</td>
-						  
-							<td >
-							 <input type="checkbox" id="" value="atendido">
-							</td>
-						</tr>
-					   <tr class="table-row">
-							<td class="table-img">
-							   <a class="active" href="#tab2" data-toggle="tab"><img src="images/in1.jpg" alt="" /></a>
-							</td>
-							<td class="table-text">
-								<h6> Miguel Grau</h6>
-							</td>
-							<td>
-								<span class="work">12:48</span>
-							</td>
-							<td class="march">
-								Av. Peru - cuadra 15 
-							</td>
-						  
-							 <td >
-							   <input type="checkbox" id="" value="atendido">
-							</td>
-						</tr>
-						<tr class="table-row">
-							<td class="table-img">
-							   <img src="images/in2.jpg" alt="" />
-							</td>
-							<td class="table-text">
-								<h6> Micaela Bastidas</h6>
-							</td>
-							<td>
-								<span class="work">13:12</span>
-							</td>
-							<td class="march">
-								Comas, Puerto Huachano II
-							</td>
-						  
-							 <td >
-							   <input type="checkbox" id="" value="atendido">
-							</td>
-						</tr>
-						<tr class="table-row">
-							<td class="table-img">
-							   <img src="images/in3.jpg" alt="" />
-							</td>
-							<td class="table-text">
-								<h6> Santa Rosa de Lima</h6>
-							</td>
-							<td>
-								<span class="work">13:51</span>
-							</td>
-							<td class="march">
-							  Frente a la casa de Deave 
-							</td>
-						  
-							 <td >
-							   <input type="checkbox" id="" value="atendido">
-							</td>
-						</tr>
-						<tr class="table-row">
-							<td class="table-img">
-							   <img src="images/in4.jpg" alt="" />
-							</td>
-							<td class="table-text">
-								<h6> Sarita Colonia</h6>
-							</td>
-							<td>
-								<span class="work">15:20</span>
-							</td>
-							<td class="march">
-								San Marcos, FISI :v 
-							</td>
-						  
-							 <td >
-							   <input type="checkbox" id="" value="atendido">
-							</td>
-						</tr>
-						<tr class="table-row">
-							<td class="table-img">
-							   <img src="images/in6.jpg" alt="" />
-							</td>
-							<td class="table-text">
-								<h6> Chabuca Granda</h6>
-							</td>
-							<td>
-								<span class="work">16:27</span>
-							</td>
-							<td class="march">
-								Otra vez en frente la casa de Deave 
-							</td>
-						  
-							 <td >
-							   <input type="checkbox" id="" value="atendido">
-							</td>
-						</tr>
-	
+					<tbody id="tabla"> <!-- Seleccion de Tabla -->
+						<!-- Aqui van las filas agregandose dinamicamente por el script -->
 					</tbody>
 				</table>
 			   </div>
 			</div>
 			</div>
-		<div class="col-md-4 content-top-2 tab-content tab-content-in">
-				<div class="tab-pane active text-style" id="tab1">
+		<div class="col-md-4 content-top-2">
+				<div class="text-style">
 					<div id="audio-player" class="audio-player-wrapper content-top-1" style="padding: 0;">
 						  <div class="audio-player-image">
 							<span class="audio-player-song-name"></span>
@@ -375,38 +333,6 @@
 				<div class="clearfix"> </div>
 				</div>
 			</div>
-
-			<div class="tab-pane text-style" id="tab2">
-					<div id="audio-player" class="audio-player-wrapper content-top-1" style="padding: 0;">
-						  <div class="audio-player-image">
-							<span class="audio-player-song-name"></span>
-						  </div>
-					  <div class="audio-player-controls">
-						<span class="audio-player-progress">
-						  <span class="audio-player-progress-bar"></span>
-						</span>
-						<span class="audio-player-button-wrappers">
-						  <!--<a role="button" class="audio-player-button small icon-backward"><span>Previous</span></a>-->
-						  <a role="button" class="audio-player-button audio-player-place-pause-button icon-play" style="margin-left: 40px;"></a>
-						  <!--<a role="button" class="audio-player-button small icon-forward"><span>Next</span></a>-->
-						</span>
-					  </div>
-					</div>
-				
-
-				<div class="content-top-1" style="padding: 0;">
-					<img src="images/asalto2.jpg" style="border-radius: 5px; width: 100%; max-height: 280px;">
-					<div class="clearfix"> </div>
-				</div>
-
-				<div class="content-top-1" style="height: 280px; padding: 0; border-radius: 5px;">
-
-					<div id="map" style="height: 100%; border-radius: 5px;"></div>
-
-				<div class="clearfix"> </div>
-				</div>
-			</div>
-
 
 		</div>
 		<div class="clearfix"> </div>
