@@ -19,13 +19,13 @@
 			$('#bt_add').click(function(){
 				agregar();
 			});
-			//$('#bt_del').click(function(){
-				//eliminar(id_fila_finalizada);
-			//});
 		});
 
 		var cont=0;
 		var mayor=0;
+		var seleccionado=false;
+		var fila_anterior='';
+
 		function agregar(){
 			cont++;
 			mayor = cont;
@@ -33,28 +33,22 @@
 			$('#tabla').prepend(fila);
 
 			//seleccionar la primera siempre
-			$('#fila'+cont).addClass('seleccionada');
-			$('#fila'+(cont-1)).removeClass('seleccionada');
-
-			
+			//$('#fila'+cont).addClass('seleccionada');
+			//$('#fila'+(cont-1)).removeClass('seleccionada');	
 		}
 
 		function seleccionar(id_fila){
 			//verificar que no haya otro selecionado y quitar la seleccion
-			for (var i = 1; i <= mayor; i++) {
-				
-				if ($('#fila'+i).hasClass('seleccionada')) {
-					$('#fila'+i).removeClass('seleccionada');
-					$('#'+id_fila).addClass('seleccionada')
-
-					//idea
-					// terinar el for y comprobar si existe la clase
-					//sino la agrega y/o elimina
-					//puede servir var x = document.getElementById("myTable").rows.length;
-				}else{
-					$('#'+id_fila).addClass('seleccionada');	
-				}
-			}	
+			if(seleccionado == true){
+				$('#'+fila_anterior).removeClass('seleccionada');
+				$('#'+id_fila).addClass('seleccionada');
+				fila_anterior=id_fila;
+			}else{
+				$('#'+id_fila).addClass('seleccionada');
+				seleccionado=true;
+				fila_anterior=id_fila;
+			}
+			console.log(id_fila);
 		}
 
 		function eliminar(i){
