@@ -29,12 +29,18 @@
 		function agregar(){
 			cont++;
 			mayor = cont;
-			var fila= '<tr id="fila'+cont+'" class="selected table-row" onclick="seleccionar(this.id);"><td class="table-img"><img src="images/in'+Math.floor(Math.random()*(12))+'.jpg" alt=""/></td><td class="table-text"><h6>Nombre</h6></td><td><span class="work">'+cont+'</span></td><td class="table-text">Direccion</td><td><a class="btn btn-default" onclick="eliminar(this.parentNode.parentNode.rowIndex);">Atendido</a></td></tr>';
+			var fila=  `<tr id="fila${cont}" class="selected table-row" onclick="seleccionar(this.id);">
+							<td class="table-img"><img src="images/in${Math.floor(Math.random()*(12))}.jpg" alt=""/></td>
+							<td class="table-text"><h6>Nombre</h6></td>
+							<td><span class="work">${cont}</span></td>
+							<td class="table-text">Direccion</td>
+							<td><a class="btn btn-default" onclick="eliminar(this.parentNode.parentNode.rowIndex);">Atendido</a></td>
+						</tr>`;
 			$('#tabla').prepend(fila);
 
 			//seleccionar la primera siempre
 			//$('#fila'+cont).addClass('seleccionada');
-			//$('#fila'+(cont-1)).removeClass('seleccionada');	
+			//$('#fila'+(cont-1)).removeClass('seleccionada');  
 		}
 
 		function seleccionar(id_fila){
@@ -49,6 +55,8 @@
 				fila_anterior=id_fila;
 			}
 			console.log(id_fila);
+
+			cargarContenido();
 		}
 
 		function eliminar(i){
@@ -56,16 +64,47 @@
 			//luego se obtiene la fila que se va a eliminar por el numero de orden con respecto a la tabla,
 			//finalmente se obtiene la columna para abstraer su numero.
 			var t = document.getElementById("tabla"),
-		    	r = t.getElementsByTagName("tr")[i-1],
-		    	d = r.getElementsByTagName("td")[2]; //luego se cambiara el numero porque no se mostrar imagen de usuario, sino la "alerta del dia" (columna[0])
+				r = t.getElementsByTagName("tr")[i-1],
+				d = r.getElementsByTagName("td")[2]; //luego se cambiara el numero porque no se mostrara imagen de usuario, sino la "alerta del dia" (columna[0])
 
-			t.deleteRow(i-1);
+			var resp = confirm('Alerta numero '+d.lastChild.innerHTML+' atendida?');
 
-			//Esto es solo de prueba
-			alert('Alerta numero '+d.lastChild.innerHTML+' atendida');
-			console.log(d.lastChild.innerHTML);
-			//Por si acaso
-			//console.log(d.lastChild.lastChild);
+			if (resp==true) {			
+				t.deleteRow(i-1);
+
+				//Esto es solo de prueba				
+				console.log(d.lastChild.innerHTML);
+
+				//Por si acaso
+				//console.log(d.lastChild.lastChild);
+			}
+		}
+
+		function cargarContenido(){
+			var datos= `<div id="audio-player" class="audio-player-wrapper content-top-1" style="padding: 0;">
+							<div class="audio-player-image">
+								<span class="audio-player-song-name"></span>
+							</div>
+						  	<div class="audio-player-controls">
+								<span class="audio-player-progress">
+							  		<span class="audio-player-progress-bar"></span>
+								</span>
+								<span class="audio-player-button-wrappers">
+							  		<a role="button" class="audio-player-button audio-player-place-pause-button icon-play" style="margin-left: 40px;"></a>
+								</span>
+						  	</div>
+						</div>
+
+						<div class="content-top-1" style="padding: 0;">
+							<img src="images/asalto${Math.floor(Math.random()*(2)+1)}.jpg" style="border-radius: 5px; width: 100%; max-height: 280px;">
+							<div class="clearfix"> </div>
+						</div>
+
+						<div class="content-top-1" style="height: 280px; padding: 0; border-radius: 5px;">
+							<div id="map" style="height: 100%; border-radius: 5px;"></div>
+							<div class="clearfix"> </div>
+						</div>`;
+			document.getElementById('recargable').innerHTML = datos;
 		}
 	</script>
 	<!-- Seleccion de Tabla -->
@@ -269,7 +308,7 @@
 								</div>
 							</div>
 				
-						</div>
+						</div>              
 				<table class="table">
 					<tr class="table-row">
 						<th>
@@ -297,7 +336,7 @@
 			</div>
 			</div>
 		<div class="col-md-4 content-top-2">
-				<div class="text-style">
+				<div id="recargable" class="text-style">
 					<div id="audio-player" class="audio-player-wrapper content-top-1" style="padding: 0;">
 						  <div class="audio-player-image">
 							<span class="audio-player-song-name"></span>
@@ -316,7 +355,7 @@
 				
 
 				<div class="content-top-1" style="padding: 0;">
-					<img src="images/asalto.jpg" style="border-radius: 5px; width: 100%; max-height: 280px;">
+					<img src="images/asalto1.jpg" style="border-radius: 5px; width: 100%; max-height: 280px;">
 					<div class="clearfix"> </div>
 				</div>
 
